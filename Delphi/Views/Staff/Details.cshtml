@@ -1,8 +1,19 @@
-﻿
+﻿@model Delphi.Models.Staff
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Details</h2>
-
+@if (Model.FirstName.Count() == 0)
+{
+    <p>There are no staff in the system</p>
+}
+else
+{
+    <table>
+        <tr>
+            <th></th>
+        </tr>
+    </table>
+}
