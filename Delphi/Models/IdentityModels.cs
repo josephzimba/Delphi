@@ -20,6 +20,10 @@ namespace Delphi.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Staff> Staffs { get; set; }
+        
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -30,4 +34,5 @@ namespace Delphi.Models
             return new ApplicationDbContext();
         }
     }
+
 }
