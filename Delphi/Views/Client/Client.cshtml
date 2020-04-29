@@ -1,0 +1,20 @@
+﻿@model Delphi.Models.Client
+@{
+    ViewBag.Title = "Client";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Client</h2>
+@if(Model.Name.Count() == 0)
+{
+    <p>There are no clients in the system</p>
+}
+else
+{
+    <table>
+        <tr>
+            <th></th>
+        </tr>
+    </table>
+}
+
