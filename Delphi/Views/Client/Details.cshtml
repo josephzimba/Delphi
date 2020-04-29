@@ -5,16 +5,26 @@
 }
 
 <h2>Client</h2>
-@if(Model.Name.Count() == 0)
-{
-    <p>There are no clients in the system</p>
-}
-else
-{
-    <table>
+<table class="table table-bordered table-hover">
+    <thead>
         <tr>
-            <th></th>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Phone Number</th>
+            <th>Address</th>
         </tr>
-    </table>
-}
+    </thead>
+    <tbody>
+        
+        {
+            <tr>
+                <td>@Model.Name</td>
+                @*<td>@Html.ActionLink(A future link to direct to new sale?)</td>*@
+                <td>@Model.Contact</td>
+                <td>@Model.PhoneNumber</td>
+                <td>@Model.Address</td>
+            </tr>
+        }
+    </tbody>
+</table>
 

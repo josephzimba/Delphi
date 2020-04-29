@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -181,6 +182,14 @@
     <Compile Include="Migrations\202004291714333_AddClientAndStaffTablesToDatabase.Designer.cs">
       <DependentUpon>202004291714333_AddClientAndStaffTablesToDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004292142111_CreateStatusTable.cs" />
+    <Compile Include="Migrations\202004292142111_CreateStatusTable.Designer.cs">
+      <DependentUpon>202004292142111_CreateStatusTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004292142555_PopulateStatusTable.cs" />
+    <Compile Include="Migrations\202004292142555_PopulateStatusTable.Designer.cs">
+      <DependentUpon>202004292142555_PopulateStatusTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
@@ -188,6 +197,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Occupation.cs" />
     <Compile Include="Models\Staff.cs" />
+    <Compile Include="Models\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\ClientEngagementViewModel.cs" />
@@ -252,6 +262,7 @@
     <Content Include="Views\ClientEngagement.cshtml" />
     <Content Include="Views\Client\Details.cshtml" />
     <Content Include="Views\Staff\Details.cshtml" />
+    <Content Include="Views\Client\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -275,6 +286,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004291714333_AddClientAndStaffTablesToDatabase.resx">
       <DependentUpon>202004291714333_AddClientAndStaffTablesToDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004292142111_CreateStatusTable.resx">
+      <DependentUpon>202004292142111_CreateStatusTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004292142555_PopulateStatusTable.resx">
+      <DependentUpon>202004292142555_PopulateStatusTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

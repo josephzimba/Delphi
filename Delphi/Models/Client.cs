@@ -22,6 +22,8 @@ namespace Delphi.Models
 
         [Required]
         public string Address { get; set; }
+        public Status Status { get; set; }
+        public byte StatusId { get; set; }
 
     }
 }
