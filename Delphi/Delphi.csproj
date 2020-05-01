@@ -268,7 +268,7 @@
     <Content Include="Views\Client\Details.cshtml" />
     <Content Include="Views\Staff\Details.cshtml" />
     <Content Include="Views\Client\Index.cshtml" />
-    <Content Include="Views\Client\New.cshtml" />
+    <Content Include="Views\Client\ClientForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -7,7 +7,7 @@ using System.Web.Services.Description;
 
 namespace Delphi.ViewModel
 {
-    public class NewClientViewModel
+    public class ClientFormViewModel
     {
         public IEnumerable<Status> Status { get; set; }
         public Client Client { get; set; }
