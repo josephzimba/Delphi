@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Delphi.Models.Staff>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Occupation</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var staff in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(staff.FirstName, "Edit", "Staff", new { id = staff.Id }, null)</td>
+                <td>@staff.LastName</td>
+                <td>@staff.Occupation</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

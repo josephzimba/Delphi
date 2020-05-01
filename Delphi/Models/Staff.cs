@@ -23,5 +23,6 @@ namespace Delphi.Models
         [Required]
         public string Address { get; set; }
         public int SIN { get; set; }
+        public string Occupation { get; set; }
     }
 }
