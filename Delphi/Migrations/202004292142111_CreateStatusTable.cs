@@ -11,22 +11,20 @@ namespace Delphi.Migrations
                 "dbo.Status",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Byte(nullable: false, identity: true),
                         Name = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
             AddColumn("dbo.Clients", "StatusId", c => c.Byte(nullable: false));
-            AddColumn("dbo.Clients", "Status_Id", c => c.Int());
-            CreateIndex("dbo.Clients", "Status_Id");
-            AddForeignKey("dbo.Clients", "Status_Id", "dbo.Status", "Id");
+            CreateIndex("dbo.Clients", "StatusId");
+            AddForeignKey("dbo.Clients", "StatusId", "dbo.Status", "Id");
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Clients", "Status_Id", "dbo.Status");
-            DropIndex("dbo.Clients", new[] { "Status_Id" });
-            DropColumn("dbo.Clients", "Status_Id");
+            DropForeignKey("dbo.Clients", "StatusId", "dbo.Status");
+            DropIndex("dbo.Clients", new[] { "StatusId" });
             DropColumn("dbo.Clients", "StatusId");
             DropTable("dbo.Status");
         }
