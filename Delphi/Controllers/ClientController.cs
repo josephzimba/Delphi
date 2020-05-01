@@ -1,6 +1,8 @@
 ﻿using Delphi.Models;
+using Delphi.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -21,7 +23,7 @@ namespace Delphi.Controllers
         // GET: Client
         public ViewResult Index()
         {
-            var clients = _context.Clients.ToList();
+            var clients = _context.Clients.Include(c => c.Status).ToList();
             return View(clients);
         }
         public ActionResult Details(int id)
@@ -35,6 +37,23 @@ namespace Delphi.Controllers
             {
                 return View(clients);
             }
+        }
+        public ActionResult New()
+        {
+            var status = _context.Status.ToList();
+            var viewModel = new NewClientViewModel
+            {
+                Status = status
+            };
+            return View(viewModel);
+        }
+        [HttpPost]
+        public ActionResult Create(Client client)
+        {
+            _context.Clients.Add(client);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Client");
         }
     }
 }

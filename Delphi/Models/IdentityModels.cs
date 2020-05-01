@@ -22,6 +22,7 @@ namespace Delphi.Models
     {
         public DbSet<Client> Clients { get; set; }
         public DbSet<Staff> Staffs { get; set; }
+        public DbSet<Status> Status { get; set; }
         
 
         public ApplicationDbContext()

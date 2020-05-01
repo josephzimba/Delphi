@@ -1,0 +1,32 @@
+﻿@model Delphi.ViewModel.NewClientViewModel
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New Client</h2>
+@using (Html.BeginForm("Create", "Client"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Client.Name)
+        @Html.TextBoxFor(m => m.Client.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Client.PhoneNumber)
+        @Html.TextBoxFor(m => m.Client.PhoneNumber, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Client.Contact)
+        @Html.TextBoxFor(m => m.Client.Contact, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Client.Address)
+        @Html.TextBoxFor(m => m.Client.Address, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Client.StatusId)
+
+        @Html.DropDownListFor(m => m.Client.StatusId, new SelectList(Model.Status, "Id", "Name"), "Select Status", new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+

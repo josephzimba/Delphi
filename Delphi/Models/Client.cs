@@ -17,12 +17,15 @@ namespace Delphi.Models
         [Required]
         public string Contact { get; set; }
 
+        [Display(Name = "Phone Number")]
         [Required]
         public int PhoneNumber { get; set; }
 
         [Required]
         public string Address { get; set; }
         public Status Status { get; set; }
+
+        [Display(Name = "Status")]
         public byte StatusId { get; set; }
 
     }
