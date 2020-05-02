@@ -204,6 +204,18 @@
     <Compile Include="Migrations\202005021707506_AddTicketsTableToDB.Designer.cs">
       <DependentUpon>202005021707506_AddTicketsTableToDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005021743311_AddDateCreatedClosedColumnsToTicketTable.cs" />
+    <Compile Include="Migrations\202005021743311_AddDateCreatedClosedColumnsToTicketTable.Designer.cs">
+      <DependentUpon>202005021743311_AddDateCreatedClosedColumnsToTicketTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005021812364_AddContractPriceToTicketTable.cs" />
+    <Compile Include="Migrations\202005021812364_AddContractPriceToTicketTable.Designer.cs">
+      <DependentUpon>202005021812364_AddContractPriceToTicketTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005021814357_PopulateTicketTypeTable.cs" />
+    <Compile Include="Migrations\202005021814357_PopulateTicketTypeTable.Designer.cs">
+      <DependentUpon>202005021814357_PopulateTicketTypeTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
@@ -322,6 +334,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005021707506_AddTicketsTableToDB.resx">
       <DependentUpon>202005021707506_AddTicketsTableToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005021743311_AddDateCreatedClosedColumnsToTicketTable.resx">
+      <DependentUpon>202005021743311_AddDateCreatedClosedColumnsToTicketTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005021812364_AddContractPriceToTicketTable.resx">
+      <DependentUpon>202005021812364_AddContractPriceToTicketTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005021814357_PopulateTicketTypeTable.resx">
+      <DependentUpon>202005021814357_PopulateTicketTypeTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

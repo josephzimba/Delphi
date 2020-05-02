@@ -11,8 +11,7 @@ namespace Delphi.ViewModel
     {
         public IEnumerable<Client> Client { get; set; }
         public IEnumerable<Staff> Staff { get; set; }
-        public DateTime Date { get; set; }
-        
+              
         
     }
 }

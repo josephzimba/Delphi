@@ -7,5 +7,11 @@
 <h2>TicketForm</h2>
 @using (Html.BeginForm("Create", "Ticket"))
 {
+    <div class="form-group">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Client)
+            @Html.DropDownListFor(m => m.Client.StatusId, new SelectList(Model.Status, "Id", "Name"), "Select Status", new { @class = "form-control" })
+        </div>
+    </div>
 
 }

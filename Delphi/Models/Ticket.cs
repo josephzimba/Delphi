@@ -11,5 +11,8 @@ namespace Delphi.Models
         public int Id { get; set; }
         public TicketType TicketType { get; set; }
         public byte TicketTypeId { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime DateClosed { get; set; }
+        public int ContractPrice { get; set; }
     }
 }
