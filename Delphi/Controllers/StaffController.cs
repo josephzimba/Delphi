@@ -43,6 +43,13 @@ namespace Delphi.Controllers
         [HttpPost]
         public ActionResult Save(Staff staff)
         {
+            if(!ModelState.IsValid)
+            {
+                var viewModel = new Staff();
+
+                return View("StaffForm", viewModel);
+            }
+
             if (staff.Id == 0)
             {
                 _context.Staffs.Add(staff);

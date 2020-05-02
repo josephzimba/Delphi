@@ -50,6 +50,18 @@ namespace Delphi.Controllers
         [HttpPost]
         public ActionResult Save(Client client)
         {
+            if (!ModelState.IsValid)
+            {
+                var status = _context.Status.ToList();
+                var viewModel = new ClientFormViewModel
+                {
+                    Client = client,
+                    Status = status
+
+                };
+
+                return View("StaffForm", viewModel);
+            }
             if (client.Id == 0)
             {
                 _context.Clients.Add(client);
