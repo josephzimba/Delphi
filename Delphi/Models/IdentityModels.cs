@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Delphi.ViewModel;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -23,7 +24,8 @@ namespace Delphi.Models
         public DbSet<Client> Clients { get; set; }
         public DbSet<Staff> Staffs { get; set; }
         public DbSet<Status> Status { get; set; }
-        
+        public DbSet<Ticket> Tickets { get; set; }
+
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

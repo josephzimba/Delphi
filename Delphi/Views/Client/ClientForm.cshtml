@@ -9,18 +9,22 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Client.Name)
         @Html.TextBoxFor(m => m.Client.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Client.Name)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Client.PhoneNumber)
         @Html.TextBoxFor(m => m.Client.PhoneNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Client.PhoneNumber)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Client.Contact)
         @Html.TextBoxFor(m => m.Client.Contact, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Client.Contact)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Client.Address)
         @Html.TextBoxFor(m => m.Client.Address, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Client.Address)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Client.StatusId)
