@@ -47,7 +47,9 @@ namespace Delphi.Controllers
             };
             return View("ClientForm", viewModel);
         }
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Client client)
         {
             if (!ModelState.IsValid)

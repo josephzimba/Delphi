@@ -40,7 +40,9 @@ namespace Delphi.Controllers
         {
             return View("StaffForm");
         }
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Staff staff)
         {
             if(!ModelState.IsValid)

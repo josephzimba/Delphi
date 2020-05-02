@@ -40,20 +40,21 @@ namespace Delphi.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Ticket ticket)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    var ticketType = _context.TicketTypes.ToList();
-            //    var client = _context.Clients.ToList();
-            //    var viewModel = new TicketFormViewModel
-            //    {
-            //        Client = client,
-            //        TicketType = ticketType
-            //    };
+            if (!ModelState.IsValid)
+            {
+                var ticketType = _context.TicketTypes.ToList();
+                var client = _context.Clients.ToList();
+                var viewModel = new TicketFormViewModel
+                {
+                    Client = client,
+                    TicketType = ticketType
+                };
 
-            //    return View("TicketForm", viewModel);
-            //}
+                return View("TicketForm", viewModel);
+            }
             if (ticket.Id == 0)
             {
                 ticket.DateCreated = DateTime.Now;

@@ -24,5 +24,11 @@
     </div>
 
     @Html.HiddenFor(m => m.Ticket.Id)
+    @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Submit</button>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
 }
