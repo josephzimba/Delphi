@@ -2,6 +2,7 @@
 using Delphi.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -22,7 +23,8 @@ namespace Delphi.Controllers
         // GET: Ticket
         public ActionResult Index()
         {
-            return View();
+            var ticket = _context.Tickets.Include(c => c.Client).ToList();
+            return View(ticket);
         }
         public ActionResult Create()
         {
@@ -33,7 +35,59 @@ namespace Delphi.Controllers
                 Client = client,
                 TicketType = ticketType
             };
+
             return View("TicketForm", viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Ticket ticket)
+        {
+            //if (!ModelState.IsValid)
+            //{
+            //    var ticketType = _context.TicketTypes.ToList();
+            //    var client = _context.Clients.ToList();
+            //    var viewModel = new TicketFormViewModel
+            //    {
+            //        Client = client,
+            //        TicketType = ticketType
+            //    };
+
+            //    return View("TicketForm", viewModel);
+            //}
+            if (ticket.Id == 0)
+            {
+                ticket.DateCreated = DateTime.Now;
+                _context.Tickets.Add(ticket);
+            }
+            else
+            {
+                var ticketInDb = _context.Tickets.Single(c => c.Id == ticket.Id);
+
+                ticketInDb.ContractPrice = ticket.ContractPrice;
+                ticketInDb.DateClosed = ticket.DateClosed;
+                ticketInDb.DateCreated = ticket.DateCreated;
+                ticketInDb.ClientId = ticket.ClientId;
+                ticketInDb.Client = ticket.Client;
+                ticketInDb.TicketTypeId = ticket.TicketTypeId;
+                ticketInDb.TicketType = ticket.TicketType;
+            }
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Ticket");
+        }
+        public ActionResult Edit(int id)
+        {
+            var client = _context.Clients.SingleOrDefault(c => c.Id == id);
+            if (client == null)
+                return HttpNotFound();
+
+            var viewModel = new ClientFormViewModel
+            {
+                Client = client,
+                Status = _context.Status.ToList()
+            };
+
+            return View("ClientForm", viewModel);
         }
     }
 }
