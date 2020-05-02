@@ -7,11 +7,12 @@ using System.Web.Services.Description;
 
 namespace Delphi.ViewModel
 {
-    public class ClientEngagementViewModel
+    public class TicketFormViewModel
     {
         public IEnumerable<Client> Client { get; set; }
-        public IEnumerable<Staff> Staff { get; set; }
-              
-        
+        public IEnumerable<TicketType> TicketType { get; set; }
+        public Ticket Ticket { get; set; }
+
+
     }
 }

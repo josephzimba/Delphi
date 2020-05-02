@@ -1,4 +1,4 @@
-﻿@model Delphi.ViewModel.ClientEngagementViewModel
+﻿@model Delphi.ViewModel.TicketFormViewModel
 @{
     ViewBag.Title = "TicketForm";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,9 +9,20 @@
 {
     <div class="form-group">
         <div class="form-group">
-            @Html.LabelFor(m => m.Client)
-            @Html.DropDownListFor(m => m.Client.StatusId, new SelectList(Model.Status, "Id", "Name"), "Select Status", new { @class = "form-control" })
+            @Html.LabelFor(m => m.Ticket.ClientId)
+            @Html.DropDownListFor(m => m.Ticket.ClientId, new SelectList(Model.Client, "Id", "Name"), "Select Client", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Ticket.TicketTypeId)
+            @Html.DropDownListFor(m => m.Ticket.TicketTypeId, new SelectList(Model.TicketType, "Id", "Name"), "Select Type", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Ticket.ContractPrice)
+            @Html.TextBoxFor(m => m.Ticket.ContractPrice, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Ticket.ContractPrice)
         </div>
     </div>
 
+    @Html.HiddenFor(m => m.Ticket.Id)
+    <button type="submit" class="btn btn-primary">Submit</button>
 }

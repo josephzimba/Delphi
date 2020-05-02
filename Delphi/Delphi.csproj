@@ -216,6 +216,14 @@
     <Compile Include="Migrations\202005021814357_PopulateTicketTypeTable.Designer.cs">
       <DependentUpon>202005021814357_PopulateTicketTypeTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005021822268_AddClientIdToTicketTable.cs" />
+    <Compile Include="Migrations\202005021822268_AddClientIdToTicketTable.Designer.cs">
+      <DependentUpon>202005021822268_AddClientIdToTicketTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005021902520_MakeDatesNullableInTicketsTable.cs" />
+    <Compile Include="Migrations\202005021902520_MakeDatesNullableInTicketsTable.Designer.cs">
+      <DependentUpon>202005021902520_MakeDatesNullableInTicketsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
@@ -227,8 +235,8 @@
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModel\ClientEngagementViewModel.cs" />
-    <Compile Include="ViewModel\NewClientViewModel.cs" />
+    <Compile Include="ViewModel\TicketFormViewModel.cs" />
+    <Compile Include="ViewModel\ClientFormViewModel.cs" />
     <Compile Include="Models\TicketType.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -343,6 +351,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005021814357_PopulateTicketTypeTable.resx">
       <DependentUpon>202005021814357_PopulateTicketTypeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005021822268_AddClientIdToTicketTable.resx">
+      <DependentUpon>202005021822268_AddClientIdToTicketTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005021902520_MakeDatesNullableInTicketsTable.resx">
+      <DependentUpon>202005021902520_MakeDatesNullableInTicketsTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
