@@ -34,10 +34,10 @@ namespace Delphi.Controllers.Api
         }
 
         [HttpPost]
-        public ClientDto CreateClient(ClientDto clientDto)
+        public IHttpActionResult CreateClient(ClientDto clientDto)
         {
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
 
             var client = Mapper.Map<ClientDto, Client>(clientDto);
 
@@ -46,7 +46,7 @@ namespace Delphi.Controllers.Api
 
             clientDto.Id = client.Id;
 
-            return clientDto;
+            return Created(new Uri(Request.RequestUri + "/" + client.Id), clientDto);
         }
 
         [HttpPut]
