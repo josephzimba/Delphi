@@ -14,6 +14,10 @@ namespace Delphi.App_Start
         {
             Mapper.CreateMap<Client, ClientDto>();
             Mapper.CreateMap<ClientDto, Client>();
+
+            Mapper.CreateMap<StaffDto, Staff>();
+            Mapper.CreateMap<Staff, StaffDto>();
+
         }
     }
 }

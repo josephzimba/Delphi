@@ -24,13 +24,14 @@ namespace Delphi.Controllers.Api
             return _context.Clients.ToList().Select(Mapper.Map<Client, ClientDto>);
         }
 
-        public ClientDto GetClient(int id)
+        public IHttpActionResult GetClient(int id)
         {
             var client = _context.Clients.SingleOrDefault(c => c.Id == id);
 
             if (client == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-            return Mapper.Map<Client, ClientDto>(client);
+                NotFound();
+
+            return Ok(Mapper.Map<Client, ClientDto>(client));
         }
 
         [HttpPost]
