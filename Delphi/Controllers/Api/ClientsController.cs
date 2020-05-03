@@ -68,7 +68,7 @@ namespace Delphi.Controllers.Api
         }
 
         [HttpDelete]
-        public void DeleteCustomer(int id)
+        public void DeleteClient(int id)
         {
             var clientInDb = _context.Clients.SingleOrDefault(c => c.Id == id);
 

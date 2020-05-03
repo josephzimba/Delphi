@@ -50,7 +50,7 @@ namespace Delphi.Controllers.Api
         }
 
         [HttpPut]
-        public void UpdateClient(int id, StaffDto staffDto)
+        public void UpdateStaff(int id, StaffDto staffDto)
         {
             if (!ModelState.IsValid)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
@@ -67,7 +67,7 @@ namespace Delphi.Controllers.Api
         }
 
         [HttpDelete]
-        public void DeleteCustomer(int id)
+        public void DeleteStaff(int id)
         {
             var staffInDb = _context.Staffs.SingleOrDefault(c => c.Id == id);
 
