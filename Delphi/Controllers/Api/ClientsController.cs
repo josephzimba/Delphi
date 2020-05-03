@@ -3,6 +3,7 @@ using Delphi.Dtos;
 using Delphi.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -21,7 +22,10 @@ namespace Delphi.Controllers.Api
 
         public IEnumerable<ClientDto> GetClients()
         {
-            return _context.Clients.ToList().Select(Mapper.Map<Client, ClientDto>);
+            return _context.Clients
+                .Include(c => c.Status)
+                .ToList()
+                .Select(Mapper.Map<Client, ClientDto>);
         }
 
         public IHttpActionResult GetClient(int id)

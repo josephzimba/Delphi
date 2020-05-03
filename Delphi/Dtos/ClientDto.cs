@@ -26,5 +26,6 @@ namespace Delphi.Dtos
 
         [Required]
         public byte StatusId { get; set; }
+        public StatusDto Status { get; set; }
     }
 }

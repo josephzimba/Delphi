@@ -14,6 +14,8 @@ namespace Delphi.App_Start
         {
             Mapper.CreateMap<Client, ClientDto>();
             Mapper.CreateMap<ClientDto, Client>();
+            Mapper.CreateMap<StatusDto, Status>();
+            Mapper.CreateMap<Status, StatusDto>();
 
             Mapper.CreateMap<StaffDto, Staff>();
             Mapper.CreateMap<Staff, StaffDto>();

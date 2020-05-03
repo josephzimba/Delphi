@@ -23,8 +23,7 @@ namespace Delphi.Controllers
         // GET: Client
         public ViewResult Index()
         {
-            var clients = _context.Clients.Include(c => c.Status).ToList();
-            return View(clients);
+            return View();
         }
         public ActionResult Details(int id)
         {
