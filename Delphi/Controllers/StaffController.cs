@@ -77,7 +77,16 @@ namespace Delphi.Controllers
             if (staffs == null)
                 return HttpNotFound();
 
-            var viewModel = new Staff();
+            var viewModel = new Staff
+            {
+                Id = staffs.Id,
+                FirstName = staffs.FirstName,
+                LastName = staffs.LastName,
+                Occupation = staffs.Occupation,
+                PhoneNumber = staffs.PhoneNumber,
+                SIN = staffs.SIN
+                
+            };
             
             return View("StaffForm", viewModel);
         }

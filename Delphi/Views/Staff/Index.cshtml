@@ -5,23 +5,76 @@
 }
 
 <h2>Index</h2>
-<table class="table table-bordered table-hover">
+<table id="staffs" class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Occupation</th>
+            <th>Delete</th>
         </tr>
     </thead>
-    <tbody>
+    @*<tbody>
         @foreach (var staff in Model)
         {
             <tr>
                 <td>@Html.ActionLink(staff.FirstName, "Edit", "Staff", new { id = staff.Id }, null)</td>
                 <td>@staff.LastName</td>
                 <td>@staff.Occupation</td>
+                <td>@staff.Delete</td>
             </tr>
         }
-    </tbody>
+    </tbody>*@
 </table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+           var table = $("#staffs").DataTable({
+                ajax: {
+                    url: "/api/staffs",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "firstName",
+                        render: function (data, type, staff) {
+                            return "<a href='/staff/edit/" + staff.id + "'>" + data + "</a>";
+
+                        }
+                    },
+                    {
+                        data: "lastName",
+                    },
+                    {
+                        data: "occupation",
+                    },
+                    {
+                        data: "id",
+                        render: function (data) {
+                            return "<button class='btn js-delete' data-staff-id=" + data + ">Delete</button>";
+                        }
+                    }
+
+                ]
+            });
+
+            $("#staffs").on("click", ".js-delete", function () {
+                var button = $(this);
+                bootbox.confirm("Are you sure you want to delete this staff?", function (result) {
+                    if (result)
+                        $.ajax({
+                            url: "/api/staffs/" + button.attr("data-staff-id"),
+                            method: "DELETE",
+                            success: function () {
+
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                })
+            })
+        });
+    </script>
+}
 
