@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Delphi.Models
+namespace Delphi.Dtos
 {
-    public class TicketType
+    public class TicketTypeDto
     {
         public byte Id { get; set; }
         public string Name { get; set; }

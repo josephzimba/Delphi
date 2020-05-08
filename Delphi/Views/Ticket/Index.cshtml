@@ -5,28 +5,68 @@
 }
 
 <h2>Index</h2>
-<table class="table table-bordered table-hover">
+<table id="tickets" class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>Company</th>
+            <th>Type</th>
             <th>Status</th>
         </tr>
     </thead>
-    <tbody>
+    @*<tbody>
         @foreach (var ticket in Model)
         {
-        <tr>
-            <td>@Html.ActionLink(ticket.Client.Name, "Edit", "Ticket", new { id = ticket.Id }, null)</td>
-            
-            @if (ticket.DateClosed < ticket.DateCreated)
-            {
-                <td>open</td>
-            }
-            else
-            {
-                <td>closed</td>
-            }
-        </tr>
+            <tr>
+                <td>@Html.ActionLink(ticket.Client.Name, "Edit", "Ticket", new { id = ticket.Id }, null)</td>
+
+                @if (ticket.DateClosed < ticket.DateCreated)
+                {
+                    <td>open</td>
+                }
+                else
+                {
+                    <td>closed</td>
+                }
+            </tr>
         }
-    </tbody>
+    </tbody>*@
 </table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+           var table = $("#tickets").DataTable({
+                ajax: {
+                    url: "/api/tickets",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "client.name",
+                        render: function (data, type, ticket) {
+                            return "<a href='/ticket/edit/" + ticket.id + "'>" + data + "</a>";
+
+                        }
+                    },
+                    {
+                        data: "ticketType.name"
+                    },
+                    {
+                        data: "dateCreated",
+                        render: function (data, type, ticket) {
+                            if (data > ticket.dateClosed) {
+                                return "open";
+                            }
+                            else {
+                                return "closed";
+                            }
+                            
+                        }
+                    }
+
+                ]
+            });
+        });
+    </script>
+}

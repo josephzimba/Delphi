@@ -22,6 +22,9 @@ namespace Delphi.App_Start
 
             Mapper.CreateMap<Ticket, TicketDto>();
             Mapper.CreateMap<TicketDto, Ticket>();
+            Mapper.CreateMap<TicketTypeDto, TicketType>();
+            Mapper.CreateMap<TicketType, TicketTypeDto>();
+
 
         }
     }

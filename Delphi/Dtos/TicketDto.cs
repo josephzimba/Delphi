@@ -23,5 +23,7 @@ namespace Delphi.Dtos
 
         [Required]
         public int ClientId { get; set; }
+        public ClientDto Client { get; set; }
+        public TicketTypeDto TicketType { get; set; }
     }
 }

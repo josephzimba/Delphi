@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Data.Entity;
 
 namespace Delphi.Controllers.Api
 {
@@ -20,7 +21,11 @@ namespace Delphi.Controllers.Api
 
         public IEnumerable<TicketDto> GetTickets()
         {
-            return _context.Tickets.ToList().Select(Mapper.Map<Ticket, TicketDto>);
+            return _context.Tickets
+                .Include(c => c.Client)
+                .Include(c => c.TicketType)
+                .ToList()
+                .Select(Mapper.Map<Ticket, TicketDto>);
         }
 
         public IHttpActionResult GetTicket(int id)

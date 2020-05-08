@@ -78,17 +78,18 @@ namespace Delphi.Controllers
         }
         public ActionResult Edit(int id)
         {
-            var client = _context.Clients.SingleOrDefault(c => c.Id == id);
-            if (client == null)
+            var ticket = _context.Tickets.SingleOrDefault(c => c.Id == id);
+            if (ticket == null)
                 return HttpNotFound();
 
-            var viewModel = new ClientFormViewModel
+            var viewModel = new TicketFormViewModel
             {
-                Client = client,
-                Status = _context.Status.ToList()
+                Ticket = ticket,
+                TicketType = _context.TicketTypes.ToList(),
+                Client = _context.Clients.ToList()
             };
 
-            return View("ClientForm", viewModel);
+            return View("TicketForm", viewModel);
         }
     }
 }
